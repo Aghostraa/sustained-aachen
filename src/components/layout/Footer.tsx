@@ -1,62 +1,72 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-(--color-dark) text-white py-12">
-      <div className="container">
-        <div className="flex flex-wrap gap-12 mb-12">
-          <div className="footer-logo">
-            <Link to="/" className="flex items-center">
-              <span className="flex items-center justify-center w-10 h-10 rounded-full bg-(--color-primary) text-white font-bold mr-2">S</span>
-              <span className="font-bold text-xl">Sustained Aachen</span>
+    <footer className="bg-dark text-white py-5">
+      <Container>
+        <Row className="mb-5">
+          <Col lg={3} className="mb-4 mb-lg-0">
+            <Link to="/" className="d-flex align-items-center text-decoration-none text-white mb-3">
+              <div className="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold me-2" style={{ width: 40, height: 40 }}>
+                S
+              </div>
+              <span className="fs-4 fw-bold">Sustained Aachen</span>
             </Link>
-          </div>
-          <div className="flex-1 flex flex-wrap gap-12">
-            <div className="flex-1 min-w-[200px]">
-              <h4 className="text-white font-bold mb-4">Platform</h4>
-              <ul>
-                <li className="mb-2"><Link to="/marketplace" className="hover:text-(--color-primary-light)">Projects</Link></li>
-                <li className="mb-2"><Link to="/impact" className="hover:text-(--color-primary-light)">Impact</Link></li>
-                <li className="mb-2"><Link to="/learning" className="hover:text-(--color-primary-light)">Learning</Link></li>
-                <li className="mb-2"><Link to="/governance" className="hover:text-(--color-primary-light)">Governance</Link></li>
-              </ul>
-            </div>
-            <div className="flex-1 min-w-[200px]">
-              <h4 className="text-white font-bold mb-4">Get Involved</h4>
-              <ul>
-                <li className="mb-2"><Link to="/submit-project" className="hover:text-(--color-primary-light)">Submit a Project</Link></li>
-                <li className="mb-2"><Link to="/volunteer" className="hover:text-(--color-primary-light)">Volunteer</Link></li>
-                <li className="mb-2"><Link to="/partner" className="hover:text-(--color-primary-light)">Partner With Us</Link></li>
-                <li className="mb-2"><Link to="/donate" className="hover:text-(--color-primary-light)">Donate</Link></li>
-              </ul>
-            </div>
-            <div className="flex-1 min-w-[200px]">
-              <h4 className="text-white font-bold mb-4">Resources</h4>
-              <ul>
-                <li className="mb-2"><Link to="/about-qf" className="hover:text-(--color-primary-light)">About Quadratic Funding</Link></li>
-                <li className="mb-2"><Link to="/guidelines" className="hover:text-(--color-primary-light)">Sustainability Guidelines</Link></li>
-                <li className="mb-2"><Link to="/impact" className="hover:text-(--color-primary-light)">Impact Measurement</Link></li>
-                <li className="mb-2"><Link to="/faq" className="hover:text-(--color-primary-light)">FAQ</Link></li>
-              </ul>
-            </div>
-            <div className="flex-1 min-w-[200px]">
-              <h4 className="text-white font-bold mb-4">Connect</h4>
-              <ul>
-                <li className="mb-2"><Link to="/contact" className="hover:text-(--color-primary-light)">Contact Us</Link></li>
-                <li className="mb-2"><Link to="/newsletter" className="hover:text-(--color-primary-light)">Newsletter</Link></li>
-                <li className="mb-2"><a href="#" className="hover:text-(--color-primary-light)">Twitter</a></li>
-                <li className="mb-2"><a href="#" className="hover:text-(--color-primary-light)">Instagram</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="pt-6 border-t border-white/10 flex justify-between flex-wrap text-(--color-gray-light) text-sm">
-          <p>&copy; 2025 Sustained Aachen. All rights reserved.</p>
-          <p>Made with 💚 for the future of Aachen</p>
-        </div>
-      </div>
+          </Col>
+          
+          <Col sm={6} md={3} lg={2} className="mb-4 mb-md-0">
+            <h5 className="fw-bold mb-3">Platform</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2"><Link to="/marketplace" className="text-white text-decoration-none">Projects</Link></li>
+              <li className="mb-2"><Link to="/impact" className="text-white text-decoration-none">Impact</Link></li>
+              <li className="mb-2"><Link to="/learning" className="text-white text-decoration-none">Learning</Link></li>
+              <li className="mb-2"><Link to="/governance" className="text-white text-decoration-none">Governance</Link></li>
+            </ul>
+          </Col>
+          
+          <Col sm={6} md={3} lg={2} className="mb-4 mb-md-0">
+            <h5 className="fw-bold mb-3">Get Involved</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2"><Link to="/submit-project" className="text-white text-decoration-none">Submit a Project</Link></li>
+              <li className="mb-2"><Link to="/volunteer" className="text-white text-decoration-none">Volunteer</Link></li>
+              <li className="mb-2"><Link to="/partner" className="text-white text-decoration-none">Partner With Us</Link></li>
+              <li className="mb-2"><Link to="/donate" className="text-white text-decoration-none">Donate</Link></li>
+            </ul>
+          </Col>
+          
+          <Col sm={6} md={3} lg={2} className="mb-4 mb-md-0">
+            <h5 className="fw-bold mb-3">Resources</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2"><Link to="/about-qf" className="text-white text-decoration-none">About Quadratic Funding</Link></li>
+              <li className="mb-2"><Link to="/guidelines" className="text-white text-decoration-none">Sustainability Guidelines</Link></li>
+              <li className="mb-2"><Link to="/impact" className="text-white text-decoration-none">Impact Measurement</Link></li>
+              <li className="mb-2"><Link to="/faq" className="text-white text-decoration-none">FAQ</Link></li>
+            </ul>
+          </Col>
+          
+          <Col sm={6} md={3} lg={2}>
+            <h5 className="fw-bold mb-3">Connect</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2"><Link to="/contact" className="text-white text-decoration-none">Contact Us</Link></li>
+              <li className="mb-2"><Link to="/newsletter" className="text-white text-decoration-none">Newsletter</Link></li>
+              <li className="mb-2"><a href="#" className="text-white text-decoration-none">Twitter</a></li>
+              <li className="mb-2"><a href="#" className="text-white text-decoration-none">Instagram</a></li>
+            </ul>
+          </Col>
+        </Row>
+        
+        <Row className="pt-4 border-top border-secondary">
+          <Col md={6} className="mb-3 mb-md-0 text-light">
+            &copy; 2025 Sustained Aachen. All rights reserved.
+          </Col>
+          <Col md={6} className="text-md-end text-light">
+            Made with 💚 for the future of Aachen
+          </Col>
+        </Row>
+      </Container>
     </footer>
   );
 };

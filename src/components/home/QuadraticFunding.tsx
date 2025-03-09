@@ -1,149 +1,215 @@
 // src/components/home/QuadraticFunding.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Card, ProgressBar, Button, Form, Alert } from 'react-bootstrap';
+
+interface ProjectCardProps {
+  initial: string;
+  title: string;
+  description: string;
+  raised: string;
+  contributors: string;
+  progress: number;
+  bgColor: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ 
+  initial, 
+  title, 
+  description, 
+  raised, 
+  contributors, 
+  progress, 
+  bgColor 
+}) => (
+  <Card className="h-100 shadow-sm hover-lift border-0 overflow-hidden">
+    <Card.Header className={`bg-${bgColor} bg-opacity-10 p-3 d-flex align-items-center gap-3`}>
+      <div className={`bg-${bgColor} text-white rounded-circle d-flex align-items-center justify-content-center fw-bold`} style={{ width: '40px', height: '40px' }}>
+        {initial}
+      </div>
+      <h5 className="mb-0 fw-semibold">{title}</h5>
+    </Card.Header>
+    <Card.Body className="p-3">
+      <p className="mb-3">{description}</p>
+      <div className="d-flex justify-content-between small text-secondary mb-2">
+        <span>{raised} raised</span>
+        <span>{contributors} contributors</span>
+      </div>
+      <ProgressBar 
+        variant={bgColor} 
+        now={progress} 
+        className="mb-3" 
+      />
+    </Card.Body>
+    <Card.Footer className="p-0">
+      <Button 
+        as={Link as any} 
+        to="/marketplace" 
+        variant="primary" 
+        className="w-100 rounded-0"
+      >
+        Fund This Project
+      </Button>
+    </Card.Footer>
+  </Card>
+);
 
 const QuadraticFunding: React.FC = () => {
   return (
-    <section className="bg-white py-16">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Quadratic Funding</h2>
-          <p className="text-(--color-gray) max-w-2xl mx-auto">Where small contributions make a big difference</p>
+    <section className="py-5 bg-white">
+      <Container>
+        <div className="text-center mb-5">
+          <h2 className="fw-bold mb-3">Quadratic Funding</h2>
+          <p className="text-secondary mx-auto" style={{ maxWidth: '700px' }}>
+            Where small contributions make a big difference
+          </p>
         </div>
         
-        <div className="flex flex-wrap lg:flex-nowrap gap-12 mb-12">
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-4">How Quadratic Funding Works</h3>
-            <p className="mb-4">Quadratic Funding mathematically rewards projects with many contributors over projects with few large donors, creating more democratic funding distribution.</p>
-            <div className="bg-(--color-light) p-4 rounded-xs font-mono text-center mb-6">
-              <p>Matching Amount = (√Sum of contributions)² - Sum of contributions</p>
+        <Row className="g-4 mb-5 align-items-center">
+          <Col lg={6}>
+            <h3 className="fw-bold mb-3">How Quadratic Funding Works</h3>
+            <p className="mb-3">
+              Quadratic Funding mathematically rewards projects with many contributors over projects with few large donors, creating more democratic funding distribution.
+            </p>
+            <div className="bg-light p-3 rounded text-center font-monospace mb-3">
+              <p className="mb-0">Matching Amount = (√Sum of contributions)² - Sum of contributions</p>
             </div>
-            <div className="bg-blue-50 p-4 rounded-xs mb-6">
-              <p><strong>Example:</strong> 25 people contributing €10 each generates more matching funds than 1 person contributing €250.</p>
-            </div>
-            <a href="#calculator" className="inline-block font-semibold rounded-xs bg-white hover:bg-(--color-primary-light) text-(--color-primary) border-2 border-(--color-primary) py-2 px-6 transition-all">
+            <Alert variant="primary" className="mb-4">
+              <strong>Example:</strong> 25 people contributing €10 each generates more matching funds than 1 person contributing €250.
+            </Alert>
+            <Button href="#calculator" variant="outline-primary" className="fw-semibold">
               Try the Calculator
-            </a>
-          </div>
-          <div className="flex-1 flex justify-center items-center">
-            <img src="/quadratic-funding.svg" alt="Quadratic Funding Visualization" className="max-w-full h-auto"/>
-          </div>
-        </div>
+            </Button>
+          </Col>
+          <Col lg={6} className="text-center">
+            <img 
+              src="/assets/quadratic-funding.svg" 
+              alt="Quadratic Funding Visualization" 
+              className="img-fluid" 
+              style={{ maxHeight: '350px' }}
+            />
+          </Col>
+        </Row>
         
-        <div className="mb-12">
-          <h3 className="text-center text-2xl font-bold mb-8">Featured Projects</h3>
-          <div className="flex flex-wrap gap-8 justify-center">
-            {/* Project Card 1 */}
-            <div className="flex-1 min-w-[300px] max-w-[350px] bg-white rounded-lg overflow-hidden shadow-sm border border-(--color-gray-light)">
-              <div className="p-4 bg-green-50 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-(--color-success) text-white flex items-center justify-center font-bold">ER</div>
-                <div className="font-semibold">Ernährungsrat Aachen</div>
-              </div>
-              <div className="p-4">
-                <p className="mb-4">Regional food hub connecting local farmers with urban consumers.</p>
-                <div className="mb-2 flex justify-between text-sm">
-                  <span>€1,427.50 raised</span>
-                  <span>42 contributors</span>
-                </div>
-                <div className="h-2 bg-(--color-gray-light) rounded-full mb-4 overflow-hidden">
-                  <div className="h-full bg-(--color-success) rounded-full" style={{ width: '65%' }}></div>
-                </div>
-              </div>
-              <Link to="/marketplace" className="block w-full bg-(--color-primary) hover:bg-(--color-primary-dark) text-white py-2 text-center transition-colors">
-                Fund This Project
-              </Link>
-            </div>
+        <div className="mb-5">
+          <h3 className="text-center fw-bold mb-4">Featured Projects</h3>
+          <Row className="g-4">
+            <Col md={4}>
+              <ProjectCard 
+                initial="ER"
+                title="Ernährungsrat Aachen"
+                description="Regional food hub connecting local farmers with urban consumers."
+                raised="€1,427.50"
+                contributors="42"
+                progress={65}
+                bgColor="success"
+              />
+            </Col>
             
-            {/* Project Card 2 */}
-            <div className="flex-1 min-w-[300px] max-w-[350px] bg-white rounded-lg overflow-hidden shadow-sm border border-(--color-gray-light)">
-              <div className="p-4 bg-blue-50 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-(--color-primary) text-white flex items-center justify-center font-bold">BM</div>
-                <div className="font-semibold">Bewegungsmelder Aachen</div>
-              </div>
-              <div className="p-4">
-                <p className="mb-4">Platform connecting people with social and environmental initiatives.</p>
-                <div className="mb-2 flex justify-between text-sm">
-                  <span>€2,184.75 raised</span>
-                  <span>78 contributors</span>
-                </div>
-                <div className="h-2 bg-(--color-gray-light) rounded-full mb-4 overflow-hidden">
-                  <div className="h-full bg-(--color-primary) rounded-full" style={{ width: '83%' }}></div>
-                </div>
-              </div>
-              <Link to="/marketplace" className="block w-full bg-(--color-primary) hover:bg-(--color-primary-dark) text-white py-2 text-center transition-colors">
-                Fund This Project
-              </Link>
-            </div>
+            <Col md={4}>
+              <ProjectCard 
+                initial="BM"
+                title="Bewegungsmelder Aachen"
+                description="Platform connecting people with social and environmental initiatives."
+                raised="€2,184.75"
+                contributors="78"
+                progress={83}
+                bgColor="primary"
+              />
+            </Col>
             
-            {/* Project Card 3 */}
-            <div className="flex-1 min-w-[300px] max-w-[350px] bg-white rounded-lg overflow-hidden shadow-sm border border-(--color-gray-light)">
-              <div className="p-4 bg-amber-50 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-(--color-accent-1) text-white flex items-center justify-center font-bold">AW</div>
-                <div className="font-semibold">Aachen Was Geht</div>
-              </div>
-              <div className="p-4">
-                <p className="mb-4">Local platform highlighting sustainable events and community initiatives.</p>
-                <div className="mb-2 flex justify-between text-sm">
-                  <span>€1,865.22 raised</span>
-                  <span>63 contributors</span>
-                </div>
-                <div className="h-2 bg-(--color-gray-light) rounded-full mb-4 overflow-hidden">
-                  <div className="h-full bg-(--color-accent-1) rounded-full" style={{ width: '75%' }}></div>
-                </div>
-              </div>
-              <Link to="/marketplace" className="block w-full bg-(--color-primary) hover:bg-(--color-primary-dark) text-white py-2 text-center transition-colors">
-                Fund This Project
-              </Link>
-            </div>
-          </div>
+            <Col md={4}>
+              <ProjectCard 
+                initial="AW"
+                title="Aachen Was Geht"
+                description="Local platform highlighting sustainable events and community initiatives."
+                raised="€1,865.22"
+                contributors="63"
+                progress={75}
+                bgColor="warning"
+              />
+            </Col>
+          </Row>
           
-          <div className="text-center mt-8">
-            <Link to="/marketplace" className="inline-block font-semibold rounded-xs bg-white hover:bg-(--color-primary-light) text-(--color-primary) border-2 border-(--color-primary) py-2 px-6 transition-all">
+          <div className="text-center mt-4">
+            <Button 
+              as={Link as any} 
+              to="/marketplace" 
+              variant="outline-primary" 
+              className="fw-semibold"
+            >
               View All Projects
-            </Link>
+            </Button>
           </div>
         </div>
         
-        <div id="calculator" className="bg-(--color-light) p-8 rounded-lg">
-          <h3 className="text-center text-2xl font-bold mb-8">Quadratic Funding Calculator</h3>
-          <div className="flex flex-wrap gap-8">
-            <div className="flex-1 min-w-[300px]">
-              <div className="mb-6">
-                <label htmlFor="contribution-amount" className="block mb-2 font-semibold">Your Contribution (€)</label>
-                <input type="number" id="contribution-amount" defaultValue="10" min="1" className="w-full p-3 border border-(--color-gray-light) rounded-xs" />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="total-contributors" className="block mb-2 font-semibold">Number of Contributors</label>
-                <input type="number" id="total-contributors" defaultValue="50" min="1" className="w-full p-3 border border-(--color-gray-light) rounded-xs" />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="matching-pool" className="block mb-2 font-semibold">Matching Pool Size (€)</label>
-                <input type="number" id="matching-pool" defaultValue="15000" min="100" className="w-full p-3 border border-(--color-gray-light) rounded-xs" />
-              </div>
-              <button id="calculate-button" className="w-full bg-(--color-primary) hover:bg-(--color-primary-dark) text-white font-semibold py-3 rounded-xs transition-all">
-                Calculate Impact
-              </button>
-            </div>
-            <div className="flex-1 min-w-[300px] flex flex-col gap-4">
-              <div className="bg-(--color-light) p-4 rounded-xs text-center">
-                <h4 className="mb-2 text-(--color-gray)">Direct Contribution</h4>
-                <div className="text-3xl font-bold">€10.00</div>
-              </div>
-              <div className="bg-(--color-primary) text-white p-4 rounded-xs text-center">
-                <h4 className="mb-2 text-blue-100">Matching Amount</h4>
-                <div className="text-3xl font-bold">€105.26</div>
-              </div>
-              <div className="bg-(--color-light) p-4 rounded-xs text-center">
-                <h4 className="mb-2 text-(--color-gray)">Total Impact</h4>
-                <div className="text-3xl font-bold">€115.26</div>
-              </div>
-              <p className="text-center mt-4 text-(--color-gray)">
+        <div id="calculator" className="bg-light p-4 p-lg-5 rounded-3">
+          <h3 className="text-center fw-bold mb-4">Quadratic Funding Calculator</h3>
+          <Row className="g-4">
+            <Col lg={6}>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-semibold">Your Contribution (€)</Form.Label>
+                  <Form.Control 
+                    type="number" 
+                    defaultValue="10"
+                    min="1"
+                  />
+                </Form.Group>
+                
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-semibold">Number of Contributors</Form.Label>
+                  <Form.Control 
+                    type="number" 
+                    defaultValue="50"
+                    min="1"
+                  />
+                </Form.Group>
+                
+                <Form.Group className="mb-4">
+                  <Form.Label className="fw-semibold">Matching Pool Size (€)</Form.Label>
+                  <Form.Control 
+                    type="number" 
+                    defaultValue="15000"
+                    min="100"
+                  />
+                </Form.Group>
+                
+                <Button variant="primary" className="w-100 fw-semibold">
+                  Calculate Impact
+                </Button>
+              </Form>
+            </Col>
+            
+            <Col lg={6}>
+              <Card className="bg-light border-0 mb-3 text-center">
+                <Card.Body>
+                  <Card.Subtitle className="text-secondary mb-2">Direct Contribution</Card.Subtitle>
+                  <Card.Title as="div" className="display-6 fw-bold">€10.00</Card.Title>
+                </Card.Body>
+              </Card>
+              
+              <Card className="bg-primary text-white mb-3 text-center">
+                <Card.Body>
+                  <Card.Subtitle className="text-white opacity-75 mb-2">Matching Amount</Card.Subtitle>
+                  <Card.Title as="div" className="display-6 fw-bold">€105.26</Card.Title>
+                </Card.Body>
+              </Card>
+              
+              <Card className="bg-light border-0 mb-3 text-center">
+                <Card.Body>
+                  <Card.Subtitle className="text-secondary mb-2">Total Impact</Card.Subtitle>
+                  <Card.Title as="div" className="display-6 fw-bold">€115.26</Card.Title>
+                </Card.Body>
+              </Card>
+              
+              <p className="text-center text-secondary">
                 Your €10 contribution generates an additional €105.26 in matching funds, multiplying your impact by 11.5x!
               </p>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

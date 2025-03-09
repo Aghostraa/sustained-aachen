@@ -1,72 +1,113 @@
 // src/components/home/Events.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+
+const EventCard = ({ 
+  month, 
+  day, 
+  title, 
+  time, 
+  location, 
+  organizer 
+}: {
+  month: string;
+  day: string;
+  title: string;
+  time: string;
+  location: string;
+  organizer: string;
+}) => {
+  return (
+    <Card className="h-100 shadow-sm hover-lift border-0">
+      <div className="d-flex">
+        <div className="bg-primary text-white text-center p-3" style={{ width: '80px' }}>
+          <div className="small fw-semibold">{month}</div>
+          <div className="fs-3 fw-bold">{day}</div>
+        </div>
+        <div className="flex-grow-1 p-3">
+          <h5 className="fw-bold mb-2">{title}</h5>
+          <p className="small text-secondary mb-2">
+            <FaClock className="me-2" /> {time}
+          </p>
+          <p className="small text-secondary mb-2">
+            <FaMapMarkerAlt className="me-2" /> {location}
+          </p>
+          <p className="small text-secondary">By: {organizer}</p>
+        </div>
+        <div className="d-flex align-items-center p-3">
+          <Button 
+            as={Link as any} 
+            to="/events" 
+            variant="primary" 
+            size="sm"
+          >
+            Register
+          </Button>
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 const Events: React.FC = () => {
   return (
-    <section className="bg-white py-16">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
-          <p className="text-(--color-gray) max-w-2xl mx-auto">Connect with the community and learn new skills</p>
+    <section className="bg-white py-5">
+      <Container>
+        <div className="text-center mb-5">
+          <h2 className="fw-bold mb-3">Upcoming Events</h2>
+          <p className="text-secondary mx-auto" style={{ maxWidth: '700px' }}>
+            Connect with the community and learn new skills
+          </p>
         </div>
         
-        <div className="flex flex-wrap gap-8 justify-center">
-          <div className="flex-1 min-w-[300px] max-w-[350px] flex bg-(--color-light) rounded-xs shadow-xs overflow-hidden">
-            <div className="bg-(--color-primary) text-white w-20 flex flex-col items-center justify-center">
-              <div className="text-sm font-semibold">MAR</div>
-              <div className="text-2xl font-bold">12</div>
-            </div>
-            <div className="flex-1 p-4">
-              <h3 className="font-bold mb-2">Local Farmers Market</h3>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-clock mr-2"></i> 09:00-14:00</p>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-map-marker-alt mr-2"></i> Markt, Aachen</p>
-              <p className="text-sm text-(--color-gray)">By: Ernährungsrat Aachen</p>
-            </div>
-            <Link to="/events" className="self-center px-4 py-2 bg-(--color-primary) hover:bg-(--color-primary-dark) text-white text-sm rounded-xs mx-4 transition-colors">
-              Register
-            </Link>
-          </div>
+        <Row className="g-4 mb-4">
+          <Col md={4}>
+            <EventCard 
+              month="MAR" 
+              day="12" 
+              title="Local Farmers Market" 
+              time="09:00-14:00" 
+              location="Markt, Aachen" 
+              organizer="Ernährungsrat Aachen" 
+            />
+          </Col>
           
-          <div className="flex-1 min-w-[300px] max-w-[350px] flex bg-(--color-light) rounded-xs shadow-xs overflow-hidden">
-            <div className="bg-(--color-primary) text-white w-20 flex flex-col items-center justify-center">
-              <div className="text-sm font-semibold">MAR</div>
-              <div className="text-2xl font-bold">18</div>
-            </div>
-            <div className="flex-1 p-4">
-              <h3 className="font-bold mb-2">Urban Gardening Workshop</h3>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-clock mr-2"></i> 15:00-17:30</p>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-map-marker-alt mr-2"></i> Kennedy Park</p>
-              <p className="text-sm text-(--color-gray)">By: PAN e.V.</p>
-            </div>
-            <Link to="/events" className="self-center px-4 py-2 bg-(--color-primary) hover:bg-(--color-primary-dark) text-white text-sm rounded-xs mx-4 transition-colors">
-              Register
-            </Link>
-          </div>
+          <Col md={4}>
+            <EventCard 
+              month="MAR" 
+              day="18" 
+              title="Urban Gardening Workshop" 
+              time="15:00-17:30" 
+              location="Kennedy Park" 
+              organizer="PAN e.V." 
+            />
+          </Col>
           
-          <div className="flex-1 min-w-[300px] max-w-[350px] flex bg-(--color-light) rounded-xs shadow-xs overflow-hidden">
-            <div className="bg-(--color-primary) text-white w-20 flex flex-col items-center justify-center">
-              <div className="text-sm font-semibold">MAR</div>
-              <div className="text-2xl font-bold">25</div>
-            </div>
-            <div className="flex-1 p-4">
-              <h3 className="font-bold mb-2">Sustainability Hackathon</h3>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-clock mr-2"></i> 10:00-18:00</p>
-              <p className="text-sm text-(--color-gray) mb-2"><i className="fas fa-map-marker-alt mr-2"></i> Digital Hub, Jülicher Straße</p>
-              <p className="text-sm text-(--color-gray)">By: Energybirds e.V.</p>
-            </div>
-            <Link to="/events" className="self-center px-4 py-2 bg-(--color-primary) hover:bg-(--color-primary-dark) text-white text-sm rounded-xs mx-4 transition-colors">
-              Register
-            </Link>
-          </div>
-        </div>
+          <Col md={4}>
+            <EventCard 
+              month="MAR" 
+              day="25" 
+              title="Sustainability Hackathon" 
+              time="10:00-18:00" 
+              location="Digital Hub, Jülicher Straße" 
+              organizer="Energybirds e.V." 
+            />
+          </Col>
+        </Row>
         
-        <div className="text-center mt-8">
-          <Link to="/events" className="inline-block font-semibold rounded-xs bg-white hover:bg-(--color-primary-light) text-(--color-primary) border-2 border-(--color-primary) py-2 px-6 transition-all">
+        <div className="text-center mt-4">
+          <Button 
+            as={Link as any} 
+            to="/events" 
+            variant="outline-primary" 
+            className="fw-semibold"
+          >
             View All Events
-          </Link>
+          </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

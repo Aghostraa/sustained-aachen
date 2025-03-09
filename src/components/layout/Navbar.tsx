@@ -1,30 +1,43 @@
 // src/components/layout/Navbar.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
-const Navbar: React.FC = () => {
+const AppNavbar: React.FC = () => {
   return (
-    <nav className="bg-(--color-dark) text-white py-4 sticky top-0 z-50 shadow-sm">
-      <div className="container flex justify-between items-center">
-        <div className="logo">
-          <Link to="/" className="flex items-center">
-            <span className="flex items-center justify-center w-10 h-10 rounded-full bg-(--color-primary) text-white font-bold mr-2">S</span>
-            <span className="font-bold text-xl">Sustained</span>
-          </Link>
-        </div>
-        <ul className="hidden md:flex items-center gap-8">
-          <li><Link to="/marketplace" className="hover:text-(--color-primary-light) transition-colors">Projects</Link></li>
-          <li><Link to="/impact" className="hover:text-(--color-primary-light) transition-colors">Impact</Link></li>
-          <li><Link to="/learning" className="hover:text-(--color-primary-light) transition-colors">Learning</Link></li>
-          <li><Link to="/governance" className="hover:text-(--color-primary-light) transition-colors">Governance</Link></li>
-          <li><Link to="/dashboard" className="bg-(--color-primary) hover:bg-(--color-primary-dark) transition-colors px-4 py-2 rounded-xs text-white">My Dashboard</Link></li>
-        </ul>
-        <button className="md:hidden">
-          <i className="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </nav>
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="py-3">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold me-2" style={{ width: 40, height: 40 }}>
+            S
+          </div>
+          <span className="fw-bold">Sustained</span>
+        </Navbar.Brand>
+        
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/marketplace">Projects</Nav.Link>
+            <Nav.Link as={Link} to="/impact">Impact</Nav.Link>
+            <Nav.Link as={Link} to="/learning">Learning</Nav.Link>
+            <Nav.Link as={Link} to="/governance">Governance</Nav.Link>
+            <Nav.Item className="d-flex align-items-center ms-lg-2">
+              <Button 
+                as={Link as any} 
+                to="/dashboard" 
+                variant="primary" 
+                size="sm"
+                className="fw-semibold"
+              >
+                My Dashboard
+              </Button>
+            </Nav.Item>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default AppNavbar;
