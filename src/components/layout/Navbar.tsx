@@ -11,9 +11,12 @@ const AppNavbar: React.FC = () => {
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="py-3">
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
-          <div className="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold me-2" style={{ width: 40, height: 40 }}>
-            S
-          </div>
+          <img 
+            src="https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafkreifqk4nqicln2whlng7dih3nyvcmo4mxsomhlfaifyuabkfhmpk7z4"
+            alt="Sustained Aachen Logo"
+            className="me-2"
+            style={{ width: 40, height: 40 }}
+          />
           <span className="fw-bold">Sustained</span>
         </Navbar.Brand>
         
@@ -23,11 +26,20 @@ const AppNavbar: React.FC = () => {
           <Nav className="ms-auto">
             <Nav.Link 
               as={Link} 
-              to="/marketplace" 
-              active={pathname === '/marketplace'}
+              to="/projects" 
+              active={pathname === '/projects'}
             >
               Projects
             </Nav.Link>
+
+            <Nav.Link 
+              as={Link} 
+              to="/marketplace" 
+              active={pathname === '/marketplace'}
+            >
+              Funding
+            </Nav.Link>
+
             <Nav.Link 
               as={Link} 
               to="/impact" 

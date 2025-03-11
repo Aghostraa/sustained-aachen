@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, ProgressBar, Button, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaGlobe } from 'react-icons/fa';
 
 interface ProjectCardProps {
   id: string;
@@ -12,6 +13,8 @@ interface ProjectCardProps {
   amountRaised: number;
   contributors: number;
   targetAmount: number;
+  contact?: string;  // Optional contact info
+  website?: string;  // Optional website URL
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -23,7 +26,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags,
   amountRaised,
   contributors,
-  targetAmount
+  targetAmount,
+  contact,
+  website
 }) => {
   const progressPercentage = Math.min(Math.round((amountRaised / targetAmount) * 100), 100);
   const formattedAmount = amountRaised.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
@@ -62,6 +67,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </Badge>
           ))}
         </div>
+        
+        {/* Contact and Website information */}
+        {(contact || website) && (
+          <div className="mb-3 small">
+            {contact && (
+              <div className="d-flex align-items-center mb-2">
+                <FaEnvelope className="me-2 text-muted" />
+                <span className="text-muted">{contact}</span>
+              </div>
+            )}
+            {website && (
+              <div className="d-flex align-items-center">
+                <FaGlobe className="me-2 text-muted" />
+                <a href={website} target="_blank" rel="noopener noreferrer" className="text-primary">
+                  {website.replace(/^https?:\/\//, '').split('/')[0]}
+                </a>
+              </div>
+            )}
+          </div>
+        )}
+        
         <div className="mt-auto">
           <div className="d-flex justify-content-between text-secondary small mb-1">
             <span>{formattedAmount} raised</span>

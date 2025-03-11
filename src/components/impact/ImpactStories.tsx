@@ -20,7 +20,7 @@ const ImpactStories: React.FC = () => {
       id: 1,
       title: 'Urban Gardens Flourish Across Aachen',
       description: 'Starting with just 2 locations in 2023, Aachen\'s Urban Gardens Initiative has expanded to 14 community gardens across all districts, producing over 2 tons of organic vegetables annually.',
-      image: 'https://via.placeholder.com/400x300/4ade80/FFFFFF?text=Urban+Gardens',
+      image: 'https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafybeigcov4qcjoklhlsvcktto2bec3hnvgjdcfhpzdwpqh3jv45mojdnm',
       metrics: [
         { value: '14', label: 'Gardens' },
         { value: '2t', label: 'Food Produced' },
@@ -31,7 +31,7 @@ const ImpactStories: React.FC = () => {
       id: 2,
       title: 'Solar Panels Power Aachen Schools',
       description: 'A student-driven initiative has successfully installed solar panels on 5 school rooftops, reducing energy costs by 35% and providing hands-on renewable energy education to over 3,000 students.',
-      image: 'https://via.placeholder.com/400x300/3b82f6/FFFFFF?text=School+Solar',
+      image: 'https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafybeiej4vl5q7pdqufovbys6v5as7v445invfa5g44fvag5vuzpahmive',
       metrics: [
         { value: '5', label: 'Schools' },
         { value: '35%', label: 'Energy Savings' },

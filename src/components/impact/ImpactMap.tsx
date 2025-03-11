@@ -50,10 +50,20 @@ const ImpactMap: React.FC = () => {
       <Container>
         <Row className="justify-content-center mb-4 text-center">
           <Col md={8}>
-            <h2 className="mb-2">Sustainability Impact Map</h2>
+            <h2 className="mb-2">Interactive Sustainability Map</h2>
             <p className="text-muted">
               Visualizing our collective impact across Aachen
             </p>
+          </Col>
+        </Row>
+        
+        <Row className="mb-4">
+          <Col>
+            <div className="bg-white p-4 rounded shadow-sm">
+              <p>
+                Curtesy of <a href="https://www.rwth-aachen.de/cms/root/Die-RWTH/Nachhaltigkeit/~scaqk/Digitale-Nachhaltigkeitslandschaft/lidx/1/">RWTH Aachen</a>
+              </p>
+            </div>
           </Col>
         </Row>
         
@@ -78,13 +88,12 @@ const ImpactMap: React.FC = () => {
                   title={pin.title}
                 />
               ))}
-              {/* Placeholder for actual map - in a real implementation this would be a proper map component */}
-              <div className="d-flex justify-content-center align-items-center text-center p-5" style={{ height: '400px' }}>
-                <div>
-                  <p className="text-muted mb-3">Aachen City Map Placeholder</p>
-                  <small className="text-muted d-block">In a production environment, this would be replaced with an actual map service like Google Maps, Mapbox, or OpenStreetMap.</small>
-                </div>
-              </div>
+              <img 
+                src="https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafkreia2p63u5zhxbzk3vrexygdtq5duqlvhcocpa2e5tlyawy6ovhq5su" 
+                alt="Sustainability Map of Aachen" 
+                className="img-fluid w-100 h-100 object-fit-cover"
+                style={{ objectPosition: 'center' }}
+              />
             </div>
           </Col>
           

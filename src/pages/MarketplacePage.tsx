@@ -6,6 +6,7 @@ import ProjectsGrid from '../components/marketplace/ProjectsGrid';
 import QuadraticCalculator from '../components/marketplace/QuadraticCalculator';
 import CallToAction from '../components/home/CallToAction';
 import FundingRounds from '../components/marketplace/FundingRounds';
+import QuadraticFundingSimulator from '../components/marketplace/QuadraticFundingSimulator';
 
 const MarketplacePage: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const MarketplacePage: React.FC = () => {
       <CurrentRound />
       <ProjectsGrid />
       <QuadraticCalculator />
+      <QuadraticFundingSimulator />
       <CallToAction />
       <FundingRounds />
     </>

@@ -1,7 +1,7 @@
 // src/components/layout/Footer.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Navbar } from 'react-bootstrap';
 
 const Footer: React.FC = () => {
   return (
@@ -9,18 +9,21 @@ const Footer: React.FC = () => {
       <Container>
         <Row className="mb-5">
           <Col lg={3} className="mb-4 mb-lg-0">
-            <Link to="/" className="d-flex align-items-center text-decoration-none text-white mb-3">
-              <div className="d-flex align-items-center justify-content-center rounded-circle bg-primary text-white fw-bold me-2" style={{ width: 40, height: 40 }}>
-                S
-              </div>
-              <span className="fs-4 fw-bold">Sustained Aachen</span>
-            </Link>
+            <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+            <img 
+             src="https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafkreifqk4nqicln2whlng7dih3nyvcmo4mxsomhlfaifyuabkfhmpk7z4"
+             alt="Sustained Aachen Logo"
+             className="me-2"
+             style={{ width: 40, height: 40 }}
+             />
+             <span className="fw-bold">Sustained Aachen</span>
+            </Navbar.Brand>
           </Col>
-          
           <Col sm={6} md={3} lg={2} className="mb-4 mb-md-0">
             <h5 className="fw-bold mb-3">Platform</h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><Link to="/marketplace" className="text-white text-decoration-none">Projects</Link></li>
+              <li className="mb-2"><Link to="/projects" className="text-white text-decoration-none">Projects</Link></li>
+              <li className="mb-2"><Link to="/marketplace" className="text-white text-decoration-none">Funding</Link></li>
               <li className="mb-2"><Link to="/impact" className="text-white text-decoration-none">Impact</Link></li>
               <li className="mb-2"><Link to="/learning" className="text-white text-decoration-none">Learning</Link></li>
               <li className="mb-2"><Link to="/governance" className="text-white text-decoration-none">Governance</Link></li>
