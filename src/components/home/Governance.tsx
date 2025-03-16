@@ -31,26 +31,40 @@ interface ProposalCardProps {
 }
 
 const ProposalCard: React.FC<ProposalCardProps> = ({ status, title, description, stats, linkText }) => (
-  <Card className="shadow-sm hover-lift border-0">
-    <Card.Body className="p-4 position-relative">
-      <Badge bg={status === 'voting' ? 'success' : 'warning'} text="dark" className="position-absolute top-0 end-0 mt-3 me-3">
+  <Card className="shadow-sm hover-lift border-0 h-100">
+    <Card.Header className="bg-white border-0 pt-4 pb-0 position-relative">
+      <Badge 
+        bg={status === 'voting' ? 'success' : 'warning'} 
+        text="dark" 
+        className="position-absolute top-0 end-0 mt-3 me-3 z-index-1"
+        style={{ zIndex: 1 }}
+      >
         {status === 'voting' ? 'Voting Open' : 'Discussion'}
       </Badge>
-      <h4 className="fw-bold mb-3 pe-5">{title}</h4>
-      <p className="mb-4">{description}</p>
-      <div className="d-flex flex-wrap justify-content-between text-secondary small mb-3">
-        {stats.map((stat, index) => (
-          <span key={index}>{stat}</span>
-        ))}
+      <h4 className="fw-bold mb-0">{title}</h4>
+    </Card.Header>
+    <Card.Body className="d-flex flex-column p-4">
+      <div className="flex-grow-1">
+        <p className="mb-4" style={{ minHeight: '3rem', maxHeight: '4.5rem', overflow: 'hidden', textOverflow: 'ellipsis', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+          {description}
+        </p>
       </div>
-      <Button 
-        as={Link as any} 
-        to="/governance" 
-        variant="primary" 
-        size="sm"
-      >
-        {linkText}
-      </Button>
+      <div className="mt-auto">
+        <div className="d-flex flex-wrap justify-content-between text-secondary small mb-3">
+          {stats.map((stat, index) => (
+            <span key={index} className="me-2">{stat}</span>
+          ))}
+        </div>
+        <Button 
+          as={Link as any} 
+          to="/governance" 
+          variant="primary" 
+          size="sm"
+          className="w-100"
+        >
+          {linkText}
+        </Button>
+      </div>
     </Card.Body>
   </Card>
 );

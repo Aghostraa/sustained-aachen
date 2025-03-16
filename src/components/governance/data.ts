@@ -41,11 +41,16 @@ export const processStepsData: ProcessStep[] = [
   },
   {
     number: 4,
+    title: 'Finalization',
+    description: 'After the new draft is finalizd, apun reachina a threshhold of 5 validations, from high impact members the proposal is intitated for voting'
+  },
+  {
+    number: 5,
     title: 'Voting',
     description: 'Community members vote using quadratic voting, where voting power is the square root of points allocated, ensuring equitable representation. Voting periods last one week, with real-time results visible to all members.'
   },
   {
-    number: 5,
+    number: 6,
     title: 'Implementation',
     description: 'Passed proposals are assigned to relevant working groups for implementation. Regular progress updates are provided to the community, and success metrics are tracked transparently through our impact dashboard.'
   }

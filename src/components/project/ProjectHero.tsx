@@ -9,7 +9,7 @@ interface SDG {
   color: string;
 }
 
-interface Update {
+export interface Update {
   date: string;
   title: string;
   content: string;

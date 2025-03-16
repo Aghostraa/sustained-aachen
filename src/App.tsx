@@ -9,6 +9,8 @@ import GovernancePage from './pages/GovernancePage';
 import DashboardPage from './pages/DashboardPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import ProjectsPage from './pages/ProjectsPage';
+import EcoFundSimPage from './pages/EcoFundSimPage';
+import ProjectAdminPage from './pages/ProjectAdminPage';
 
 function App() {
   return (
@@ -25,6 +27,10 @@ function App() {
           {/* Other routes will be added as we build more pages */}
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:id" element={<ProjectDetailPage />} />
+          {/* Add EcoFundSim route */}
+          <Route path="/ecofundsim" element={<EcoFundSimPage />} />
+          {/* Add Project Admin Dashboard route */}
+          <Route path="/project/:projectId/admin" element={<ProjectAdminPage />} />
           {/* Redirects for easier navigation to each project */}
           <Route path="/baumschutzbund" element={<Navigate to="/project/baumschutzbund" replace />} />
           <Route path="/aachenwasgeht" element={<Navigate to="/project/aachenwasgeht" replace />} />

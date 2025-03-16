@@ -1,6 +1,3 @@
-export { default as FundingMechanismsHub } from './FundingMechanismsHub';
-export { default as FundingMechanismsComparison } from './FundingMechanismsComparison';
-export { default as QuadraticFundingSimulator } from './QuadraticFundingSimulator';
 export { default as QuadraticCalculator } from './QuadraticCalculator';
 export { default as ProjectsGrid } from './ProjectsGrid';
 export { default as ProjectCard } from './ProjectCard';

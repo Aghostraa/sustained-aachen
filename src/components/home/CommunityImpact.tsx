@@ -1,7 +1,7 @@
 // src/components/home/CommunityImpact.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 import { FaArrowRight } from 'react-icons/fa';
 
 const CommunityImpact: React.FC = () => {
@@ -20,7 +20,15 @@ const CommunityImpact: React.FC = () => {
             <Card className="text-center h-100 shadow-sm hover-lift">
               <Card.Body className="p-4">
                 <h3 className="display-6 fw-bold text-primary mb-2">15.8k</h3>
-                <div className="text-secondary">Tons CO₂ Prevented</div>
+                <div className="text-secondary mb-2">Tons CO₂ Prevented</div>
+                <div className="progress-container">
+                  <ProgressBar 
+                    variant="success" 
+                    now={75} 
+                    label={`${75}%`} 
+                    className="progress-md" 
+                  />
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -29,7 +37,15 @@ const CommunityImpact: React.FC = () => {
             <Card className="text-center h-100 shadow-sm hover-lift">
               <Card.Body className="p-4">
                 <h3 className="display-6 fw-bold text-primary mb-2">42%</h3>
-                <div className="text-secondary">Waste Reduction</div>
+                <div className="text-secondary mb-2">Waste Reduction</div>
+                <div className="progress-container">
+                  <ProgressBar 
+                    variant="success" 
+                    now={42} 
+                    label={`${42}%`} 
+                    className="progress-md" 
+                  />
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -38,7 +54,15 @@ const CommunityImpact: React.FC = () => {
             <Card className="text-center h-100 shadow-sm hover-lift">
               <Card.Body className="p-4">
                 <h3 className="display-6 fw-bold text-primary mb-2">64</h3>
-                <div className="text-secondary">Active Projects</div>
+                <div className="text-secondary mb-2">Active Projects</div>
+                <div className="progress-container">
+                  <ProgressBar 
+                    variant="success" 
+                    now={64} 
+                    label={`${64}%`} 
+                    className="progress-md" 
+                  />
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -47,7 +71,15 @@ const CommunityImpact: React.FC = () => {
             <Card className="text-center h-100 shadow-sm hover-lift">
               <Card.Body className="p-4">
                 <h3 className="display-6 fw-bold text-primary mb-2">3.2k</h3>
-                <div className="text-secondary">Community Members</div>
+                <div className="text-secondary mb-2">Community Members</div>
+                <div className="progress-container">
+                  <ProgressBar 
+                    variant="success" 
+                    now={80} 
+                    label={`${80}%`} 
+                    className="progress-md" 
+                  />
+                </div>
               </Card.Body>
             </Card>
           </Col>
@@ -57,7 +89,7 @@ const CommunityImpact: React.FC = () => {
           <Row className="g-0">
             <Col lg={5} className="bg-light d-flex align-items-center">
               <img 
-                src="/assets/community-garden.jpg" 
+                src="https://indigo-advanced-fish-283.mypinata.cloud/ipfs/bafybeigcov4qcjoklhlsvcktto2bec3hnvgjdcfhpzdwpqh3jv45mojdnm" 
                 alt="Community Garden Project" 
                 className="img-fluid w-100 h-100 object-fit-cover" 
                 style={{ minHeight: '300px', objectFit: 'cover' }}

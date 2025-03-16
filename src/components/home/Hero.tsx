@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       <Container className="position-relative">
         <Row className="align-items-center gy-4 min-vh-75">
           <Col lg={8} className="mx-auto text-center text-white">
-            <h1 className="fw-bold mb-4 display-5">
+            <h1 className="fw-bold mb-4 display-5" style={{ color: 'white' }}>
               Sustained Aachen: Amplifying Individual Actions for Collective Impact
             </h1>
             <p className="lead mb-4">

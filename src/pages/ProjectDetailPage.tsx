@@ -4,6 +4,7 @@ import ProjectHero from '../components/project/ProjectHero';
 import ProjectContent from '../components/project/ProjectContent';
 import SimilarProjects from '../components/project/SimilarProjects';
 import CollaborationMatcher from '../components/project/CollaborationMatcher';
+import ProjectAdminLink from '../components/project/ProjectAdminLink';
 import { Container } from 'react-bootstrap';
 import { projectsData } from '../data/projectData';
 
@@ -23,6 +24,7 @@ const ProjectDetailPage: React.FC = () => {
       </Container>
       <CollaborationMatcher currentProject={project} />
       <SimilarProjects projects={project.similarProjects} />
+      <ProjectAdminLink projectId={project.id} />
     </>
   );
 };
