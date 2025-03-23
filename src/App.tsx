@@ -11,6 +11,7 @@ import ProjectDetailPage from './pages/ProjectDetailPage';
 import ProjectsPage from './pages/ProjectsPage';
 import EcoFundSimPage from './pages/EcoFundSimPage';
 import ProjectAdminPage from './pages/ProjectAdminPage';
+import StudentQFRoundPage from './pages/StudentQFRoundPage';
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
           <Route path="/project/:id" element={<ProjectDetailPage />} />
           {/* Add EcoFundSim route */}
           <Route path="/ecofundsim" element={<EcoFundSimPage />} />
+          {/* Add Student QF Round route */}
+          <Route path="/student-qf-round" element={<StudentQFRoundPage />} />
           {/* Add Project Admin Dashboard route */}
           <Route path="/project/:projectId/admin" element={<ProjectAdminPage />} />
           {/* Redirects for easier navigation to each project */}

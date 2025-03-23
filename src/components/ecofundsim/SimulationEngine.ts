@@ -286,16 +286,16 @@ export const createDefaultConfig = (): SimulationConfig => {
     matchingPool: 5000,
     formulaType: 'standard',
     formulaParams: {
-      cap: 200,
-      threshold: 50,
-      alpha1: 0.7,
-      alpha2: 0.3,
+      cap: 5,
+      threshold: 3,
+      alpha1: 0.833,
+      alpha2: 0.167,
       beta: 0.7,
       reserved: 0.1
     },
-    enableAntiCollusion: true,
-    enableVerification: true,
-    enableIncentives: true,
+    enableAntiCollusion: false,
+    enableVerification: false,
+    enableIncentives: false,
     categoricalAllocation: false
   };
 }; 

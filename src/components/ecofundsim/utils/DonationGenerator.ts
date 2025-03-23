@@ -56,7 +56,7 @@ export const generateDonations = (
       ranges = {
         small: { min: 1, max: 3, probability: 0.9 },
         medium: { min: 5, max: 10, probability: 0.09 },
-        large: { min: 50, max: 100, probability: 0.01 }
+        large: { min: 50, max: 200, probability: 0.01 }
       };
       break;
     case 'custom':

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Badge, Button } from 'react-bootstrap';
 import { FaCalendarAlt, FaClock } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CurrentRound: React.FC = () => {
   return (
@@ -32,15 +33,17 @@ const CurrentRound: React.FC = () => {
             </Col>
             <Col md={4}>
               <div className="bg-white p-4 text-center rounded shadow-sm">
-                <div className="fs-2 fw-bold text-primary">€15,000</div>
+                <div className="fs-2 fw-bold text-primary">€5,000</div>
                 <div className="text-secondary my-2">Matching Pool</div>
-                <Button 
-                  variant="primary" 
-                  size="sm" 
-                  className="px-3"
-                >
-                  About Matching
-                </Button>
+                <Link to="/student-qf-round">
+                  <Button 
+                    variant="primary" 
+                    size="sm" 
+                    className="px-3"
+                  >
+                    Explore This Round
+                  </Button>
+                </Link>
               </div>
             </Col>
           </Row>

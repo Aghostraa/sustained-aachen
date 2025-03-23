@@ -342,15 +342,15 @@ export const calculateMatchingFunds = (
       return calculateCappedQF(
         donations, 
         config.matchingPool, 
-        config.formulaParams.cap || 500
+        config.formulaParams.cap || 5
       );
     case 'two-tier':
       return calculateTwoTierQF(
         donations, 
         config.matchingPool, 
-        config.formulaParams.threshold || 50,
-        config.formulaParams.alpha1 || 0.7,
-        config.formulaParams.alpha2 || 0.3
+        config.formulaParams.threshold || 3,
+        config.formulaParams.alpha1 || 0.5,
+        config.formulaParams.alpha2 || 0.1
       );
     case 'declining':
       return calculateDecliningQF(
